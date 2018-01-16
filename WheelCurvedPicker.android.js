@@ -1,6 +1,6 @@
 'use strict';
 
-import React from 'react';
+import React, {Component} from 'react';
 import {
   View,
   ColorPropType,
@@ -8,9 +8,8 @@ import {
 } from 'react-native';
 
 
-var WheelCurvedPicker = React.createClass ({
-
-  propTypes: {
+class WheelCurvedPicker extends Component{
+  static propTypes = {
     ...View.propTypes,
 
     data: React.PropTypes.array,
@@ -53,25 +52,24 @@ var WheelCurvedPicker = React.createClass ({
 
     selectedValue: React.PropTypes.any,
 
-  },
+  }
 
-  getDefaultProps(): Object {
-    return {
-      itemStyle : {color:"white", fontSize:26},
-      indicatorStyle: {color:"red", fontSize:2},
-      itemSpace: 20,
-    };
-  },
+  static defaultProps = {
+    itemStyle : {color:"white", fontSize:26},
+    indicatorStyle: {color:"red", fontSize:2},
+    itemSpace: 20,
+  }
 
-  getInitialState: function() {
-    return this._stateFromProps(this.props);
-  },
+  constructor (props) {
+    super(props)
+    this._stateFromProps(props);
+  }
 
-  componentWillReceiveProps: function(nextProps) {
+  componentWillReceiveProps (nextProps) {
     this.setState(this._stateFromProps(nextProps));
-  },
+  }
 
-  _stateFromProps: function(props) {
+  _stateFromProps (props) {
     var selectedIndex = 0;
     var items = [];
     React.Children.forEach(props.children, function (child, index) {
@@ -95,15 +93,15 @@ var WheelCurvedPicker = React.createClass ({
     var visibleItemCount = props.visibleItemCount
 
     return {selectedIndex, items, textSize, textColor, selectTextColor, itemSpace,indicator, indicatorColor, indicatorSize, curtain, curtainColor, atmospheric, curved, visibleItemCount} ;
-  },
+  }
 
-  _onValueChange: function(e: Event) {
+  _onValueChange (e: Event) {
     if (this.props.onValueChange) {
       var selectedItem = this.state.items[e.nativeEvent.data];
       !selectedItem && (selectedItem = {theValue:0});
       this.props.onValueChange(selectedItem.theValue);
     }
-  },
+  }
 
   render() {
     return <WheelCurvedPickerNative
@@ -124,19 +122,19 @@ var WheelCurvedPicker = React.createClass ({
     visibleItemCount={this.state.visibleItemCount}
   />;
   }
-});
+}
 
-WheelCurvedPicker.Item = React.createClass({
-  propTypes: {
+class Item extends Component {
+  static propTypes = {
     value: React.PropTypes.any, // string or integer basically
     label: React.PropTypes.string,
-  },
-
-  render: function() {
+  }
+  render () {
     // These items don't get rendered directly.
     return null;
-  },
-});
+  }
+}
+WheelCurvedPicker.Item = Item
 
 var WheelCurvedPickerNative = requireNativeComponent('WheelCurvedPicker', WheelCurvedPicker);
 
