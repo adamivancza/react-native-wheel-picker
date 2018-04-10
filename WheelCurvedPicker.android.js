@@ -62,7 +62,10 @@ class WheelCurvedPicker extends Component{
 
   constructor (props) {
     super(props)
-    this._stateFromProps(props);
+    this.state = {
+      ...this._stateFromProps(props)
+    };
+    this._onValueChange = this._onValueChange.bind(this);
   }
 
   componentWillReceiveProps (nextProps) {
