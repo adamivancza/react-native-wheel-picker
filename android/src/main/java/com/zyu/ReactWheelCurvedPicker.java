@@ -8,9 +8,6 @@ import android.graphics.Shader;
 import android.os.SystemClock;
 import android.util.AttributeSet;
 
-import com.aigestudio.wheelpicker.WheelPicker;
-import com.aigestudio.wheelpicker.WheelPicker;
-import com.aigestudio.wheelpicker.WheelPicker.OnWheelChangeListener;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.WritableMap;
@@ -28,6 +25,7 @@ public class ReactWheelCurvedPicker extends WheelPicker {
 //    private Integer indicatorColor = Color.WHITE;
     private final EventDispatcher mEventDispatcher;
     private List<Integer> mValueData;
+    private int selectedPosition = 0;
 
     private int mState;
 //    public void setIndicatorColor(Integer indicatorColor) {
@@ -56,26 +54,18 @@ public class ReactWheelCurvedPicker extends WheelPicker {
         });
     }
 
-//    @Override
-//    protected void drawForeground(Canvas canvas) {
-//        super.drawForeground(canvas);
-//
-//        Paint paint = new Paint();
-//        paint.setColor(this.indicatorColor);
-//        canvas.drawLine(rectCurItem.left, rectCurItem.top, rectCurItem.right, rectCurItem.top, paint);
-//        canvas.drawLine(rectCurItem.left, rectCurItem.bottom, rectCurItem.right, rectCurItem.bottom, paint);
-//    }
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        // to fix a bug that it can't select correct position in long lists
+        super.setSelectedItemPosition(selectedPosition);
     }
 
-//    @Override
-//    public void setItemIndex(int index) {
-//        super.setItemIndex(index);
-//        unitDeltaTotal = 0;
-//        mHandler.post(this);
-//    }
+    @Override
+    public void setSelectedItemPosition(int newPosition) {
+        super.setSelectedItemPosition(newPosition);
+        selectedPosition = newPosition;
+    }
 
     public void setValueData(List<Integer> data) {
         mValueData = data;

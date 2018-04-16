@@ -1,25 +1,53 @@
 {
-  "name": "react-native-wheel-picker",
-  "version": "1.1.2",
-  "description": "React native cross platform picker.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "_from": "git+https://github.com/UnPourTous/react-native-wheel-picker.git",
+  "_id": "react-native-wheel-picker@1.1.2",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/react-native-wheel-picker",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "react-native-wheel-picker@git+https://github.com/UnPourTous/react-native-wheel-picker.git",
+    "name": "react-native-wheel-picker",
+    "escapedName": "react-native-wheel-picker",
+    "rawSpec": "git+https://github.com/UnPourTous/react-native-wheel-picker.git",
+    "saveSpec": "git+https://github.com/UnPourTous/react-native-wheel-picker.git",
+    "fetchSpec": "https://github.com/UnPourTous/react-native-wheel-picker.git",
+    "gitCommittish": null
   },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+https://github.com/UnPourTous/react-native-wheel-picker.git#c7131f77d23931d2e96a72faafe8a396a359ada7",
+  "_spec": "react-native-wheel-picker@git+https://github.com/UnPourTous/react-native-wheel-picker.git",
+  "_where": "/Users/roosevelt/Projects/scooch-final-rn/Scooch",
+  "author": {
+    "name": "Yu Zheng"
+  },
+  "bugs": {
+    "url": "https://github.com/lesliesam/react-native-wheel-picker/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "prop-types": "^15.5.10"
+  },
+  "deprecated": false,
+  "description": "React native cross platform picker.",
+  "homepage": "https://github.com/lesliesam/react-native-wheel-picker#readme",
+  "keywords": [
+    "react-native",
+    "picker",
+    "wheel"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "react-native-wheel-picker",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lesliesam/react-native-wheel-picker.git"
   },
-  "keywords": [
-    "react-native",
-    "picker",
-	"wheel"
-  ],
-  "author": "Yu Zheng",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/lesliesam/react-native-wheel-picker/issues"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "https://github.com/lesliesam/react-native-wheel-picker#readme",
-  "dependencies": {}
+  "version": "1.1.2"
 }
