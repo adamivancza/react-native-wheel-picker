@@ -1,6 +1,7 @@
 package com.zyu;
 
 import android.graphics.Color;
+import android.graphics.Typeface;
 
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
@@ -9,6 +10,7 @@ import com.facebook.react.uimanager.PixelUtil;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
+import com.facebook.react.views.text.ReactFontManager;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -186,6 +188,16 @@ public class ReactWheelCurvedPickerManager extends SimpleViewManager<ReactWheelC
     public void setVisibleItemCount(ReactWheelCurvedPicker picker, int num) {
         if (picker != null) {
             picker.setVisibleItemCount(num);
+        }
+    }
+
+    @ReactProp(name="fontFamily")
+    public void setFontFamily(ReactWheelCurvedPicker picker, String fontFamily) {
+        if (picker != null) {
+            Typeface typeface =  ReactFontManager.getInstance().getTypeface(fontFamily, 0, picker.getContext().getAssets());
+            if (typeface != null) {
+                picker.setTypeface(typeface);    
+            }
         }
     }
 

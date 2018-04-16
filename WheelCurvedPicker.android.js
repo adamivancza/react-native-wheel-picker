@@ -53,6 +53,7 @@ class WheelCurvedPicker extends Component{
 
     selectedValue: PropTypes.any,
 
+    fontFamily: PropTypes.string
   }
 
   static defaultProps = {
@@ -95,8 +96,9 @@ class WheelCurvedPicker extends Component{
     var atmospheric = props.atmospheric
     var curved = props.curved
     var visibleItemCount = props.visibleItemCount
+    var fontFamily = props.fontFamily
 
-    return {selectedIndex, items, textSize, textColor, selectTextColor, itemSpace,indicator, indicatorColor, indicatorSize, curtain, curtainColor, atmospheric, curved, visibleItemCount} ;
+    return {selectedIndex, items, textSize, textColor, selectTextColor, itemSpace,indicator, indicatorColor, indicatorSize, curtain, curtainColor, atmospheric, curved, visibleItemCount, fontFamily} ;
   }
 
   _onValueChange (e: Event) {
@@ -124,6 +126,7 @@ class WheelCurvedPicker extends Component{
     atmospheric={this.state.atmospheric}
     curved={this.state.curved}
     visibleItemCount={this.state.visibleItemCount}
+    fontFamily={this.state.fontFamily}
   />;
   }
 }

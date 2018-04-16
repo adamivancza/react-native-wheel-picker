@@ -22,15 +22,11 @@ import java.util.List;
  * @author <a href="mailto:lesliesam@hotmail.com"> Sam Yu </a>
  */
 public class ReactWheelCurvedPicker extends WheelPicker {
-//    private Integer indicatorColor = Color.WHITE;
     private final EventDispatcher mEventDispatcher;
     private List<Integer> mValueData;
     private int selectedPosition = 0;
 
     private int mState;
-//    public void setIndicatorColor(Integer indicatorColor) {
-//            this.indicatorColor = indicatorColor;
-//         }
     public ReactWheelCurvedPicker(ReactContext reactContext) {
         super(reactContext);
         mEventDispatcher = reactContext.getNativeModule(UIManagerModule.class).getEventDispatcher();
